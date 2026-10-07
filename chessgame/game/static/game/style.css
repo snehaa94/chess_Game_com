@@ -1,0 +1,253 @@
+:root {
+  --bg: #0b1020;
+  --panel: #111936;
+  --line: #253052;
+  --text: #f7f8fc;
+  --muted: #9da8c7;
+  --accent: #7c5cff;
+  --light: #f0d9b5;
+  --dark: #b58863;
+  --good: #55d69b;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: radial-gradient(
+    circle at 20% 0,
+    #20275b 0,
+    #0b1020 38%,
+    #080c18 100%
+  );
+  color: var(--text);
+  font-family:
+    Inter,
+    system-ui,
+    Segoe UI,
+    Arial,
+    sans-serif;
+  min-height: 100vh;
+}
+.topbar {
+  height: 70px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background: #0b1020cc;
+  backdrop-filter: blur(10px);
+}
+.brand {
+  font-weight: 800;
+  font-size: 22px;
+}
+.brand span {
+  margin-left: 7px;
+}
+.tag {
+  color: var(--muted);
+  font-size: 13px;
+}
+.layout {
+  max-width: 1150px;
+  margin: auto;
+  padding: 55px 24px 35px;
+}
+.hero {
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+.eyebrow {
+  color: #a89cff;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.hero h1 {
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 0.98;
+  margin: 12px 0 18px;
+}
+.hero h1 span {
+  color: #a99cff;
+}
+.sub {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.game-card {
+  background: #10172e;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 20px 60px #0006;
+}
+.game-head,
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.status {
+  color: var(--good);
+  font-size: 14px;
+  margin-top: 6px;
+}
+.dot {
+  color: #666;
+  margin: 0 4px;
+}
+.btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 16px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 750;
+  cursor: pointer;
+}
+.btn:hover {
+  filter: brightness(1.1);
+}
+.secondary {
+  background: #1b2544;
+  border: 1px solid var(--line);
+}
+.board-wrap {
+  width: min(560px, 90vw);
+  height: min(560px, 90vw);
+  margin: 22px auto;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.board {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 5px solid #171c31;
+  box-shadow: 0 12px 35px #0008;
+}
+.sq {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(28px, 7vw, 58px);
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+}
+.sq.light {
+  background: var(--light);
+}
+.sq.dark {
+  background: var(--dark);
+}
+.sq.selected {
+  outline: 4px solid #ffdd57;
+  outline-offset: -4px;
+}
+.sq.legal:after {
+  content: "";
+  width: 24%;
+  height: 24%;
+  border-radius: 50%;
+  background: #0004;
+  position: absolute;
+}
+.sq.capture {
+  box-shadow: inset 0 0 0 5px #ffdf57;
+}
+.piece {
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+  text-shadow: 0 2px 2px #0005;
+}
+.white-piece {
+  color: #fff;
+}
+.black-piece {
+  color: #111;
+}
+.controls {
+  margin-top: 18px;
+}
+.moves {
+  color: var(--muted);
+  font-size: 14px;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+}
+.features > div {
+  background: #0f162c;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+}
+.features b {
+  display: block;
+  margin-bottom: 7px;
+}
+.features span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+footer {
+  text-align: center;
+  color: #69738f;
+  font-size: 12px;
+  padding: 25px;
+}
+.error {
+  color: #ff7676 !important;
+}
+@media (max-width: 800px) {
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tag {
+    display: none;
+  }
+}
+@media (max-width: 520px) {
+  .layout {
+    padding: 32px 12px;
+  }
+  .game-card {
+    padding: 12px;
+    border-radius: 18px;
+  }
+  .features {
+    grid-template-columns: 1fr;
+  }
+  .topbar {
+    padding: 0 18px;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+}

@@ -1,0 +1,22 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChessArena — Play vs Computer</title>
+<link rel="stylesheet" href="{% static 'game/style.css' %}">
+</head>
+<body>
+<header class="topbar"><div class="brand">♞ <span>ChessArena</span></div><div class="tag">Full-Stack Chess • Django + Python</div></header>
+<main class="layout">
+<section class="hero"><p class="eyebrow">SOFTWARE DEVELOPMENT PROJECT</p><h1>Classic Chess.<br><span>Play against the computer.</span></h1><p class="sub">A fully functional chess application with legal-move validation, computer AI, game state management, responsive UI, automated tests and production deployment support.</p></section>
+<section class="game-card">
+<div class="game-head"><div><strong>Human</strong> <span class="dot">●</span> <strong>Computer</strong><div id="status" class="status">Loading game…</div></div><button id="newGame" class="btn">New Game</button></div>
+<div class="board-wrap"><div id="board" class="board" aria-label="Chess board"></div></div>
+<div class="controls"><button id="flip" class="btn secondary">Flip Board</button><span id="moves" class="moves">White to move</span></div>
+</section>
+<section class="features"><div><b>♜ Real rules</b><span>Powered by python-chess for legal move validation.</span></div><div><b>🤖 AI opponent</b><span>Lightweight minimax + alpha-beta pruning.</span></div><div><b>🧪 Tested</b><span>Automated Django tests for core gameplay APIs.</span></div><div><b>🚀 Deployable</b><span>WhiteNoise + Gunicorn + Render configuration.</span></div></section>
+</main>
+<footer>Built as an SDLC portfolio project • Python • Django • JavaScript • HTML/CSS</footer>
+<script src="{% static 'game/app.js' %}"></script>
+</body></html>
